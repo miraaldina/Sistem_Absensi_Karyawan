@@ -1,0 +1,453 @@
+/* ===== GLOBAL ENHANCEMENTS ===== */
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 20px 50px rgba(0, 0, 0, 0.2);
+    --border-radius: 15px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  * {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+  }
+  
+  /* ===== NAVBAR ENHANCEMENTS ===== */
+  .header_area {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .shadow-navbar {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand img {
+    transition: var(--transition);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+  
+  .navbar-brand:hover img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  }
+  
+  .nav-link {
+    font-weight: 500;
+    color: #2c3e50 !important;
+    padding: 0.75rem 1.25rem !important;
+    border-radius: 25px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: var(--transition);
+  }
+  
+  .nav-link:hover::before {
+    left: 100%;
+  }
+  
+  .nav-link:hover {
+    color: #667eea !important;
+    transform: translateY(-2px);
+  }
+  
+  .btn-login-navbar {
+    background: var(--primary-gradient);
+    color: white !important;
+    border: none;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+  }
+  
+  .btn-login-navbar:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+    color: white !important;
+  }
+  
+  .dropdown-menu {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    animation: slideDown 0.3s ease;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .dropdown-item {
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition);
+    border-radius: 8px;
+    margin: 2px 8px;
+  }
+  
+  .dropdown-item:hover {
+    background: var(--primary-gradient);
+    color: white;
+    transform: translateX(5px);
+  }
+  
+  /* ===== HERO SECTION ENHANCEMENTS ===== */
+  .hero-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+  }
+  
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+    background-size: cover;
+  }
+  
+  .hero-banner .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero-banner img {
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .title-hero {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    animation: slideInRight 1s ease-out;
+    line-height: 1.2;
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .desc-hero {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    animation: slideInRight 1s ease-out 0.3s both;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ===== KONTAK SECTION ENHANCEMENTS ===== */
+  .kontak-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+  }
+  
+  .kontak-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23764ba2" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat;
+    background-size: cover;
+  }
+  
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+  }
+  
+  .kontak-desc {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+  }
+  
+  .kontak-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .kontak-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: var(--transition);
+  }
+  
+  .kontak-card:hover::before {
+    left: 100%;
+  }
+  
+  .kontak-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .kontak-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: var(--primary-gradient);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition);
+  }
+  
+  .kontak-card:hover .kontak-icon {
+    transform: rotate(360deg) scale(1.1);
+  }
+  
+  .kontak-icon i {
+    font-size: 2rem;
+    color: white;
+  }
+  
+  .kontak-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .kontak-info {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 500;
+    word-break: break-word;
+  }
+  
+  footer {
+    margin-top: -0.4rem; /* naikkan posisi footer */
+    padding: 1rem -1rem;
+    background: #dfe6f1; /* ganti latar agar teks gelap terlihat jelas */
+    text-align: center;
+  }
+  
+  footer p {
+    color: #444; /* deskripsi teks warna gelap */
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .footer-card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    width: 220px;
+    transition: transform 0.3s;
+  }
+  
+  .footer-card:hover {
+    transform: translateY(-4px);
+  }
+    
+  .footer-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #111;
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    color: #080808;
+  }
+  .footer-bottom {
+    font-size: 0.93rem;
+    color: #000000;
+    text-align: center;
+    width: 100%;
+    padding-top: 1rem;
+  }
+  
+  
+  /* ===== RESPONSIVE ENHANCEMENTS ===== */
+  @media (max-width: 768px) {
+    .title-hero {
+      font-size: 2.5rem;
+    }
+    
+    .desc-hero {
+      font-size: 1rem;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+    }
+    
+    .kontak-card {
+      margin-bottom: 2rem;
+      padding: 2rem 1.5rem;
+    }
+    
+    .hero-banner {
+      padding: 60px 0;
+    }
+    
+    .kontak-section {
+      padding: 60px 0;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .title-hero {
+      font-size: 2rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .nav-link {
+      padding: 0.5rem 1rem !important;
+    }
+    
+    .btn-login-navbar {
+      padding: 0.5rem 1rem !important;
+    }
+  }
+  
+  /* ===== ADDITIONAL ANIMATIONS ===== */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+  
+  .animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ===== LOADING ANIMATIONS ===== */
+  .kontak-card {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  .kontak-card:nth-child(1) { animation-delay: 0.1s; }
+  .kontak-card:nth-child(2) { animation-delay: 0.3s; }
+  .kontak-card:nth-child(3) { animation-delay: 0.5s; }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ===== SCROLL EFFECTS ===== */
+  .parallax-element {
+    transition: transform 0.5s ease-out;
+  }
+  
+  /* ===== HOVER EFFECTS ENHANCEMENTS ===== */
+  .kontak-card:hover .kontak-info {
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  .kontak-card:hover h4 {
+    color: #667eea;
+  }
